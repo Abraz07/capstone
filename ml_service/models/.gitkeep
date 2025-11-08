@@ -1,0 +1,3 @@
+# This file ensures the models directory is tracked by git
+# Model files (*.joblib, *.pkl) are ignored but the directory structure is preserved
+

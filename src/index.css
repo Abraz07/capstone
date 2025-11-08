@@ -1,0 +1,128 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-calm-200;
+  }
+  
+  body {
+    @apply bg-gradient-to-br from-calm-50 via-primary-50/30 to-indigo-50/20 text-calm-900 font-sans antialiased;
+    background-attachment: fixed;
+  }
+  
+  body.dark {
+    @apply bg-gradient-to-br from-calm-900 via-calm-800 to-primary-900/20 text-calm-50;
+    background-attachment: fixed;
+  }
+  
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  /* Focus styles for accessibility */
+  .focus-ring {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary-500 focus:ring-offset-2 dark:focus:ring-offset-calm-800;
+  }
+  
+  /* Large button style for ADHD-friendly design */
+  .btn-large {
+    @apply px-6 py-4 text-lg font-medium rounded-xl min-h-[56px] focus-ring transition-all duration-200;
+  }
+  
+  /* Enhanced Card style with gradient borders and shadows */
+  .card {
+    @apply bg-white/90 dark:bg-calm-800/90 rounded-3xl shadow-elegant dark:shadow-elegant-lg 
+           border border-calm-200/60 dark:border-calm-700/60 p-6 
+           backdrop-blur-xl transition-all duration-300 
+           hover:shadow-elegant-lg dark:hover:shadow-elegant-lg
+           hover:scale-[1.02] hover:-translate-y-1;
+  }
+  
+  .card-gradient {
+    @apply card bg-gradient-to-br from-white via-primary-50/50 to-indigo-50/30 
+           dark:from-calm-800 dark:via-primary-900/20 dark:to-indigo-900/20
+           border-primary-200/50 dark:border-primary-800/50;
+  }
+  
+  .card-glass {
+    @apply bg-white/80 dark:bg-calm-800/80 backdrop-blur-2xl rounded-3xl
+           border border-white/20 dark:border-calm-700/30
+           shadow-elegant-lg;
+  }
+  
+  /* Enhanced Input style */
+  .input {
+    @apply w-full px-5 py-3.5 rounded-2xl border-2 border-calm-300/60 dark:border-calm-600/60 
+           bg-white/80 dark:bg-calm-800/80 backdrop-blur-sm
+           text-calm-900 dark:text-calm-50 
+           focus-ring transition-all duration-300
+           focus:border-primary-500 focus:bg-white dark:focus:bg-calm-800
+           focus:shadow-glow focus:scale-[1.02]
+           placeholder:text-calm-400 dark:placeholder:text-calm-500;
+  }
+  
+  /* Skeleton loader */
+  .skeleton {
+    @apply animate-pulse bg-calm-200 dark:bg-calm-700 rounded;
+  }
+  
+  /* Glass morphism effect */
+  .glass {
+    @apply bg-white/70 dark:bg-calm-800/70 backdrop-blur-md border border-white/20 dark:border-calm-700/50;
+  }
+  
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 via-indigo-600 to-purple-600 
+           dark:from-primary-400 dark:via-indigo-400 dark:to-purple-400 
+           bg-clip-text text-transparent font-bold;
+    background-size: 200% auto;
+    animation: gradient 3s linear infinite;
+  }
+  
+  /* Shimmer effect */
+  .shimmer {
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(255, 255, 255, 0.2) 50%,
+      rgba(255, 255, 255, 0) 100%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite;
+  }
+  
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-calm-100 dark:bg-calm-800;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-primary-400 dark:bg-primary-600 rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary-500 dark:bg-primary-500;
+  }
+}
+
